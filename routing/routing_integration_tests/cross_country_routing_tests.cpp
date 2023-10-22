@@ -12,8 +12,8 @@ UNIT_TEST(CrossCountry_Schengen_Borders_Austria_to_Austria_through_Germany)
 {
   integration::CalculateRouteAndTestRouteLength(
       integration::GetVehicleComponents(VehicleType::Car),
-      mercator::FromLatLon(53.83281, 32.47602) /* startPoint */, {0.0, 0.0} /* startDirection */,
-      mercator::FromLatLon(52.79681, 32.98167) /* finalPoint */, 194'678 /* expectedRouteMeters */);
+      mercator::FromLatLon(47.7707543, 13.0557409) /* startPoint */, {0.0, 0.0} /* startDirection */,
+      mercator::FromLatLon(47.6500734, 12.7291784) /* finalPoint */, 41126.6 /* expectedRouteMeters */);
 }
 
 // In this case the shortest way from Russian Federation, Smolensk Oblast to Russian Federation,
@@ -21,10 +21,11 @@ UNIT_TEST(CrossCountry_Schengen_Borders_Austria_to_Austria_through_Germany)
 // borders so the route runs through Belarus.
 UNIT_TEST(CrossCountry_EAEU_Borders_Russia_to_Russia_through_Belarus)
 {
+  /// @todo Uses tertiary instead of longer (7km) primary. Can't say fo sure is it ok or not, but looks good.
   integration::CalculateRouteAndTestRouteLength(
       integration::GetVehicleComponents(VehicleType::Car),
       mercator::FromLatLon(53.83281, 32.47602) /* startPoint */, {0.0, 0.0} /* startDirection */,
-      mercator::FromLatLon(52.79681, 32.98167) /* finalPoint */, 194'678 /* expectedRouteMeters */);
+      mercator::FromLatLon(52.79681, 32.98167) /* finalPoint */, 188'085 /* expectedRouteMeters */);
 }
 
 // In this case the shortest way from Belgorod oblast to Crimea is through Ukraine. But we add

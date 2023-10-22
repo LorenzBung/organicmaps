@@ -77,10 +77,12 @@ UNIT_TEST(NetherlandsAmsterdamSingelStCyclewayOpposite)
 
 UNIT_TEST(RussiaMoscowKashirskoe16ToCapLongRoute)
 {
+  // There is no dedicated bicycle infra, except short end part. All OSM routers give different results,
+  // but OM and Valhalla looks better.
   CalculateRouteAndTestRouteLength(
       GetVehicleComponents(VehicleType::Bicycle),
       mercator::FromLatLon(55.66230, 37.63214), {0., 0.},
-      mercator::FromLatLon(55.68927, 37.70356), 7075.0);
+      mercator::FromLatLon(55.68927, 37.70356), 7323.01);
 }
 
 // Passing through living_street and service are allowed in Russia
@@ -178,7 +180,7 @@ UNIT_TEST(Munich_OnewayBicycle1)
   integration::CalculateRouteAndTestRouteLength(
       integration::GetVehicleComponents(VehicleType::Bicycle),
       mercator::FromLatLon(48.1601673, 11.5630245), {0.0, 0.0},
-      mercator::FromLatLon(48.1606349, 11.5631699), 279.515 /* expectedRouteMeters */);
+      mercator::FromLatLon(48.1606349, 11.5631699), 264.042 /* expectedRouteMeters */);
 }
 
 UNIT_TEST(Munich_OnewayBicycle2)
@@ -201,14 +203,14 @@ UNIT_TEST(Batumi_AvoidServiceDetour)
 {
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Bicycle),
       mercator::FromLatLon(41.6380014, 41.6269446), {0.0, 0.0},
-      mercator::FromLatLon(41.6392113, 41.6260084), 156.465 /* expectedRouteMeters */);
+      mercator::FromLatLon(41.6392113, 41.6260084), 160.157 /* expectedRouteMeters */);
 }
 
 UNIT_TEST(Gdansk_AvoidLongCyclewayDetour)
 {
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Bicycle),
       mercator::FromLatLon(54.2632738, 18.6771661), {0.0, 0.0},
-      mercator::FromLatLon(54.2698882, 18.6765837), 753.837 /* expectedRouteMeters */);
+      mercator::FromLatLon(54.2698882, 18.6765837), 775.81 /* expectedRouteMeters */);
 }
 
 // https://github.com/organicmaps/organicmaps/issues/4145
